@@ -1,0 +1,26 @@
+#实现eureka 注册中心的高可用,搭建多个节点的eureka注册中心
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 8763        #不同节点端口不同
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://gengzi:gengzi@peer1:8762/eureka/,http://gengzi:gengzi@peer3:8764/eureka/     #将本服务注册中心注册到其他节点上
+  instance:
+    hostname: peer2   #不同节点的主机名
+#开启认证
+security:
+  user:
+    name: gengzi
+    password: gengzi
+  basic:
+    enabled: true
+
+
+
+

@@ -1,0 +1,36 @@
+#服务名称
+#服务端口
+server:
+  port: 8761
+##默认eureka-server  服务注册中心会把自己当做客户端尝试注册它自己，所以我们禁止他的客户端行为
+#eureka:
+#  client:
+#    register-with-eureka: false                  #默认为true
+#    fetch-registry: false                         #默认为true
+#    service-url: http://${eureka.instance.hostname}:${server.port}/eureka/     #注册中心     http://${spring.application.name}:${server.port}/eureka/
+
+
+#开启rureka进行身份校验
+#开启身份校验，需要引入 spring-security 的依赖
+     #注册中心     http://user:password@${spring.application.name}:${server.port}/eureka/
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false                  #默认为true
+    fetch-registry: false                         #默认为true
+    serviceUrl:
+         defaultZone: http://username:password@${eureka.instance.hostname}:${server.port}/eureka/
+
+#开启认证
+security:
+  basic:
+    enabled: true
+  user:
+    #账号
+    name: gengzi
+    #密码
+    password: gengzi
+
+
+
