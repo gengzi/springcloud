@@ -1,5 +1,6 @@
 #实现eureka 注册中心的高可用,搭建多个节点的eureka注册中心
 # 需要将本项目打包 jar  执行命令： java -jar gengzi-eureka-server-1.0-SNAPSHOT.jar --spring.profiles.active=peer1   启动 ，每个节点都需要启动
+# 需要将 hostname 的值都设置到 hosts 中。例如：127.0.0.1 peer1 ，否则会报错误
 spring:
   application:
     name: eureka-server
