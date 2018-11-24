@@ -8,7 +8,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://peer1:8762/eureka/
+      defaultZone: http://gengzi:gengzi@localhost:8761/eureka/
 
 #注册到一个注册中心
 #defaultZone: http://peer1:8762/eureka/

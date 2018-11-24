@@ -36,7 +36,7 @@ public class HelloWorldControllerProvider {
 
 
     /**
-     * 耗时接口
+     * 请求耗时接口，如果响应时间超过 2000ms 发送错误
      * @return
      */
     @RequestMapping("/hello/timeouts")
@@ -52,8 +52,6 @@ public class HelloWorldControllerProvider {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
         return "no -timeouts";
     }
 
