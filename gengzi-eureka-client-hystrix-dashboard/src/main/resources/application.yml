@@ -1,0 +1,30 @@
+server:
+  port: 7001
+spring:
+  application:
+    #最好写成小写，因为再生成eureka的Application 的时候，会转变为大写
+    name: consumer-dashboard-service
+#将微服务注册到注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://gengzi:gengzi@localhost:8761/eureka/
+
+#注册到一个注册中心
+#defaultZone: http://peer1:8762/eureka/
+#如果需要认证
+#defaultZone: http://gengzi:gengzi@peer1:8762/eureka/
+#如果注册到多个注册中心，使用逗号分隔
+#defaultZone: http://peer1:8762/eureka/,http://peer2:8763/eureka/
+
+
+
+
+
+
+
+
+
+
+
+
