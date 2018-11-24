@@ -44,7 +44,7 @@ public class HelloWorldControllerProvider {
         ServiceInstance localServiceInstance = client.getLocalServiceInstance();
         logger.info("/hello,host:"+localServiceInstance.getHost()+";service_id:"+localServiceInstance.getServiceId());
 
-        int random = new Random().nextInt(4000);
+        int random = new Random().nextInt(3000);
         logger.info("耗时"+random);
         try {
             //超时触发断路器， 触发熔断请求
