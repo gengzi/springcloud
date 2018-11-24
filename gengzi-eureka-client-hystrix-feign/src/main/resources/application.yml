@@ -1,0 +1,91 @@
+server:
+  port: 7002
+spring:
+  application:
+    #最好写成小写，因为再生成eureka的Application 的时候，会转变为大写
+    name: consumer-feigen-service
+#将微服务注册到注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://gengzi:gengzi@localhost:8761/eureka/
+
+#注册到一个注册中心
+#defaultZone: http://peer1:8762/eureka/
+#如果需要认证
+#defaultZone: http://gengzi:gengzi@peer1:8762/eureka/
+#如果注册到多个注册中心，使用逗号分隔
+#defaultZone: http://peer1:8762/eureka/,http://peer2:8763/eureka/
+
+
+#Ribbon 全局配置
+ribbon:
+  ConnectTimeout: 500
+  # 需要设置的比 hystrix 的超时时间设置的小，因为这个跟 hystrix 的超时时间不一样，
+  # 如果超过了 hystrix 的超时时间，直接会发生 熔断，那重试机制就没有什么用了
+  ReadTimeout: 2000
+  # 重试所有的请求
+  OkToRetryOnAllOperations: true
+  # 尝试更换两次实例进行重试
+  MaxAutoRetriesNextServer: 2
+  # 重试策略，先尝试访问首选实例一次，失败后才更换实例访问
+  MaxAutoRetries: 1
+
+#ribbon 对某一个服务的配置
+PROVIDER-SERVICE:
+  ribbon:
+    ConnectTimeout: 500
+    # 需要设置的比 hystrix 的超时时间设置的小，因为这个跟 hystrix 的超时时间不一样，
+    # 如果超过了 hystrix 的超时时间，直接会发生 熔断，那重试机制就没有什么用了
+    ReadTimeout: 2000
+    # 重试所有的请求
+    OkToRetryOnAllOperations: true
+    # 尝试更换两次实例进行重试
+    MaxAutoRetriesNextServer: 2
+    # 重试策略，先尝试访问首选实例一次，失败后才更换实例访问
+    MaxAutoRetries: 1
+# hystrix 全局配置
+hystrix:
+  command:
+    default:
+      execution:
+#        timeout:
+#          # 关闭熔断功能
+#          enable: false
+        isolation:
+          # 设置超时时间
+          thread.timeoutInMilliseconds: 2000
+#配置请求压缩
+feign:
+  compression:
+    request:
+      enable: true
+#      mime-types: text/xml,application/xml,application/json
+#       min-request-size: 2048
+    response:
+      enable: true
+
+
+# 关闭 hystrix 的功能
+#feign:
+# hystrix:
+#  enable: false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
