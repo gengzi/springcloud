@@ -1,0 +1,61 @@
+server:
+  port: 8000
+spring:
+  application:
+    #最好写成小写，因为再生成eureka的Application 的时候，会转变为大写
+    name: api-gateway
+#自定义路由转发  当我们访问 http://localhost:6000/api-a-url/hello
+#                会访问到 http://localhost:9000/hello
+#   传统路由,运维人员需要花费大量的时间,来处理 path 和 url 之前的关系
+#zuul:
+#  routes:
+#  #api-a-url  路由的名称，可以自定义
+#    api-a-url:
+#      path: /api-a-url/**
+#      url: http://localhost:9000/
+
+#面向服务的路由跟eureka 进行整合
+
+#只需要配置 serviceId 即可
+zuul:
+  routes:
+    apia:
+      path: /api-a/**
+      serviceId: provider-service
+    apib:
+      path: /api-b/**
+      serviceId: consumer-service
+
+#zuul:
+#  routes:
+#    users:
+#      path: /myusers/**
+#      serviceId: PROVIDER-SERVICE
+
+#将微服务注册到注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://gengzi:gengzi@localhost:8761/eureka/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
