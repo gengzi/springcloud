@@ -1,0 +1,13 @@
+server:
+  port: 8500
+  tomcat:
+    uri-encoding: utf-8
+
+
+#天气服务的地址
+weather:
+  uri: http://wthrcdn.etouch.cn/weather_mini
+
+
+
+
