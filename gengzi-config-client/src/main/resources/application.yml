@@ -17,12 +17,7 @@ spring:
           username: 1164014750@qq.com
           password: songmengke521..
 
-#uri 如果想以本地仓库运行，可以设置
-#  cloud:
-#    config:
-#      server:
-#        git:
-#        #配置git仓库的位置
-#          uri: file://${user.home}/config-repo         ${user.home} 代表当前用户所述目录
+
+
 
 
