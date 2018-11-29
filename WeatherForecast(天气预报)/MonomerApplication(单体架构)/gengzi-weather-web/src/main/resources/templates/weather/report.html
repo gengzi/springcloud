@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${reportModel.title}" >title</title>
+    <style type="text/css">
+        body,ul,li{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body style="position: relative">
+  <h1 th:text="${reportModel.cityWeather.data.city}" ></h1>
+  <h1 th:text="${reportModel.cityWeather.data.aqi}" ></h1>
+  <h1 th:text="${reportModel.cityWeather.data.ganmao}" ></h1>
+  <h1 th:text="${reportModel.cityWeather.data.wendu}" ></h1>
+
+  <ul  style="float: left;"  th:each="forecast :   ${reportModel.cityWeather.data.forecast}">
+      <li th:text="${forecast.date}" ></li>
+      <li th:text="${forecast.high}" ></li>
+      <li th:text="${forecast.fengli}" ></li>
+      <li th:text="${forecast.low}" ></li>
+      <li th:text="${forecast.fengxiang}" ></li>
+      <li th:text="${forecast.type}" ></li>
+  </ul>
+
+
+
+
+</body>
+</html>
