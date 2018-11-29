@@ -1,0 +1,15 @@
+server:
+  port: 8301
+spring:
+  application:
+    name: rabbitmq-hello
+    # 连接rabbitmq 的服务器
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: gengzi
+    password: gengzi
+
+
+
+

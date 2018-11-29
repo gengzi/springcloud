@@ -1,0 +1,28 @@
+server:
+  port: 8301
+spring:
+  application:
+    name: rabbitmq-hello
+    # 连接rabbitmq 的服务器
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: gengzi
+    password: gengzi
+    virtual-host: /
+
+
+mq:
+  queue:
+    durable: true
+    exclusive: false
+    autoDelete: false
+    name: email_queue
+  exchange:
+    name: email_exchange
+    durable: true
+    autoDelete: false
+  routekey:
+    name: email_routekey
+
+
