@@ -1,15 +1,22 @@
 server:
-  port: 8301
+  port: 8302
 spring:
   application:
-    name: rabbitmq-hello
+    name: rabbitmq-hello1
     # 连接rabbitmq 的服务器
   rabbitmq:
     host: localhost
     port: 5672
     username: gengzi
     password: gengzi
+    virtual-host: /
 
-
-
+mq:
+  queue:
+    name: email_queue
+mail:
+  host: smtp.163.com
+  port: 25
+  username: 17839166574@163.com
+  password: qq1164014750
 
