@@ -11,8 +11,9 @@ spring:
     password: gengzi
     virtual-host: /
 
-
+# mq 的设置
 mq:
+  # queue 配置
   queue:
     durable: true
     exclusive: false

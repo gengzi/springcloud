@@ -82,7 +82,9 @@ public class RabbitMqConfig {
 
         SimpleMessageListenerContainer simpleMessageListenerContainer =
                 new SimpleMessageListenerContainer(cachingConnectionFactory());
+        // 设置queuename
         simpleMessageListenerContainer.setQueueNames(queueName);
+        // 设置监听器
         simpleMessageListenerContainer.setMessageListener(mailMessageListenerAdapter);
         // 设置手动 ACK
         simpleMessageListenerContainer.setAcknowledgeMode(AcknowledgeMode.MANUAL);
