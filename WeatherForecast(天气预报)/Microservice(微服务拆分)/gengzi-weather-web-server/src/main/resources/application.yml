@@ -1,0 +1,22 @@
+server:
+  port: 8603
+  tomcat:
+    uri-encoding: utf-8
+#天气服务的地址
+weather:
+  uri: http://wthrcdn.etouch.cn/weather_mini
+#配置redis
+spring:
+  redis:
+    host: localhost
+    port: 6379
+  thymeleaf:
+  #禁用缓存
+    cache: false
+
+
+
+
+
+
+
