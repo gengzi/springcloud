@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>club.gsjblog.springcloud</groupId>
+    <artifactId>gengzi-weather-querydata-server</artifactId>
+    <version>2.0-SNAPSHOT</version>
+
+    <description>
+        #################################################
+        version1.0    天气预测系统：
+        basic： 对接第三方的天气服务接口
+        接口1： http://wthrcdn.etouch.cn/weather_mini?city=北京
+        通过城市名字获得天气数据，json数据
+        接口2： http://wthrcdn.etouch.cn/weather_mini?citykey=101010100
+        通过城市id获得天气数据，json数据
+        ##############
+        version1.1 ：
+        增加redis ，实现服务的高可用，使用redis 实现缓存
+        将查询过的天气信息缓存到redis中
+        F:\ruanjiuanbao\Redis-x64-3.2.100
+        ##############
+        version1.2：
+        增加quartz，定时同步天气预报数据，半小时同步一次数据
+        #############
+        version1.3：
+        绘制前端页面，展示天气信息
+        #################################################
+        version2.0    天气预测系统：
+        拆分单体应用的服务，拆分为四个服务
+        天气数据同步服务（定时同步城市的天气数据）   gengzi-weather-datasync-server
+        天气数据api查询服务（提供查询天气的数据）    gengzi-weather-querydata-server
+        天气预报服务（用户进入页面，查询天气信息）   gengzi-weather-web-server
+        城市数据api服务（提供查询所有的城市列表）    gengzi-weather-citydata-server
+    </description>
+
+    <!--spring cloud基于spring boot，配置spring boot parent-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <!--引入eureka-server -->
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!--引入spring data redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <!--打包插件-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
