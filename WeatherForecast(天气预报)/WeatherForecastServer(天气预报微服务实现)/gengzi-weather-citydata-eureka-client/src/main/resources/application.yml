@@ -1,0 +1,27 @@
+server:
+  port: 8604
+  tomcat:
+    uri-encoding: utf-8
+#天气服务的地址
+weather:
+  uri: http://wthrcdn.etouch.cn/weather_mini
+#配置redis
+spring:
+  redis:
+    host: localhost
+    port: 6379
+  thymeleaf:
+  #禁用缓存
+    cache: false
+  application:
+    name: gengzi-weather-citydata-eureka-client
+#将微服务注册到注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://gengzi:gengzi@localhost:8761/eureka/
+
+
+
+
+
