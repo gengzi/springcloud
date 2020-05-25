@@ -15,13 +15,14 @@ server:
      #注册中心     http://user:password@${spring.application.name}:${server.port}/eureka/
 eureka:
   instance:
-    hostname: localhost
+    hostamne: localhost
   client:
-    register-with-eureka: false                  #默认为true
-    fetch-registry: false                         #默认为true
+    # ureka-Server 会启动一个 Eureka-Client 客户端，用于 Eureka-Server 集群之间的请求交互，因为这里我们仅仅搭建 Eureka-Server 单节点，所以设置 register-with-eureka 和 fetch-registry 配置项为 false，无需相互注册。
+    register-with-eureka: false                  #不注册到 Eureka-Server,默认为true
+    fetch-registry: false                         # 不从 Eureka-Server 获取注册表，默认为true
     serviceUrl:
-         defaultZone:  http://username:password@${eureka.instance.hostname}:${server.port}/eureka/
-         #         defaultZone: http://username:password@${eureka.instance.hostname}:${server.port}/eureka/
+      #defaultZone:  http://username:password@${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://username:password@loaclhost:8761/eureka/
   server:
   # 关闭eureka的自我保护机制
   #EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.

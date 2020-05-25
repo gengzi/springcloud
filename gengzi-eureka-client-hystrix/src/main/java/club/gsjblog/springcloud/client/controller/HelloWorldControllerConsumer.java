@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class HelloWorldControllerConsumer {
 
+    // RestTemplate 是 Spring 提供的 HTTP 调用模板工具类，可以方便我们稍后调用服务提供者的 HTTP API。
     // RestTemplate 是 spring cloud 提供的对服务提供者的请求
     @Autowired
     private RestTemplate restTemplate;

@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailServiceImpl implements  EmailService{
 
+
+    // rabbitmq 的实例
     @Autowired
     @Qualifier(value = "rabbitTemplate")
     private RabbitTemplate rabbitTemplate;
