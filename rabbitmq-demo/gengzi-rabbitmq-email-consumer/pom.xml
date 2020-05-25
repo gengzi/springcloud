@@ -38,7 +38,7 @@
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
-            <version>4.2.1</version>
+            <version>4.8.0</version>
         </dependency>
 
         <!--2,添加spring boot 整合的  Rabbitmq -->
